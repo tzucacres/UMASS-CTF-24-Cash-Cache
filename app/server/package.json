@@ -1,0 +1,12 @@
+{
+  "name": "cash-cache-js",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "cookie-parser": "1.4.6",
+    "express": "^4.19.2",
+    "nunjucks": "3.2.4",
+    "redis": "^4.6.13",
+    "uuid": "^9.0.1"
+  }
+}

